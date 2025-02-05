@@ -1,5 +1,5 @@
 /*
- * Por: Wilton Lacerda Silva
+ * Por: Lucas Dias da Silva 
  *    Comunicação serial com I2C
  *  
  * Uso da interface I2C para comunicação com o Display OLED
