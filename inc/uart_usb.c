@@ -1,5 +1,5 @@
 /*
- * Por: Lucas Dias da Silva
+ * Por: Wilton Lacerda Silva
  *
  * Utiliza a UART para controlar LEDs RGB.
  *
@@ -16,54 +16,63 @@
 
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include "uart_usb.h"
 
 #define led_pin_g 11
 #define led_pin_b 12
 #define led_pin_r 13
 
-void controlar_leds() {
-    stdio_init_all();  // Inicializa a comunicação serial
+int main()
+{
+    stdio_init_all(); // Inicializa comunicação USB CDC para monitor serial
 
-    // Inicializa os pinos dos LEDs
+    // Configura os pinos dos LEDs como saída
     gpio_init(led_pin_r);
     gpio_set_dir(led_pin_r, GPIO_OUT);
-    gpio_put(led_pin_r, 0);
+    gpio_put(led_pin_r, 0); // Inicialmente desligado
 
     gpio_init(led_pin_g);
     gpio_set_dir(led_pin_g, GPIO_OUT);
-    gpio_put(led_pin_g, 0);
+    gpio_put(led_pin_g, 0); // Inicialmente desligado
 
     gpio_init(led_pin_b);
     gpio_set_dir(led_pin_b, GPIO_OUT);
-    gpio_put(led_pin_b, 0);
+    gpio_put(led_pin_b, 0); // Inicialmente desligado
 
-    printf("Controle de LEDs iniciado. Envie 'r', 'g' ou 'b' para alternar.\n");
+    printf("RP2040 inicializado. Envie 'r', 'g' ou 'b' para alternar os LEDs.\n");
 
-    while (true) {
-        if (stdio_usb_connected()) {  // Verifica se a comunicação USB está conectada
-            if (uart_is_readable(uart0)) {  // Verifica se há dados disponíveis na UART
-                char c = uart_getc(uart0);  // Lê o caractere da UART
+    while (true)
+    {
+        if (stdio_usb_connected())
+        { // Certifica-se de que o USB está conectado
+            char c;
+            if (scanf("%c", &c) == 1)
+            { // Lê caractere da entrada padrão
                 printf("Recebido: '%c'\n", c);
-                
-                switch (c) {
-                    case 'r':
-                        gpio_put(led_pin_r, !gpio_get(led_pin_r));  // Alterna o LED vermelho
-                        printf("LED vermelho alternado!\n");
-                        break;
-                    case 'g':
-                        gpio_put(led_pin_g, !gpio_get(led_pin_g));  // Alterna o LED verde
-                        printf("LED verde alternado!\n");
-                        break;
-                    case 'b':
-                        gpio_put(led_pin_b, !gpio_get(led_pin_b));  // Alterna o LED azul
-                        printf("LED azul alternado!\n");
-                        break;
-                    default:
-                        printf("Comando inválido: '%c'\n", c);
+
+                switch (c)
+                {
+                    //Caso o caractere recebido seja 'r' será lido o estado do led vermelho 
+                    // o o seu valor será invertido. Logo, se o led estiver aceso ele será apagado
+                    // e se estiver apagado ele será aceso.
+                                    case 'r':
+                    gpio_put(led_pin_r, !gpio_get(led_pin_r));
+                    printf("LED vermelho alternado!\n");
+                    break;
+                case 'g':
+                    gpio_put(led_pin_g, !gpio_get(led_pin_g));
+                    printf("LED verde alternado!\n");
+                    break;
+                case 'b':
+                    gpio_put(led_pin_b, !gpio_get(led_pin_b));
+                    printf("LED azul alternado!\n");
+                    break;
+                default:
+                    printf("Comando inválido: '%c'\n", c);
                 }
             }
         }
-        sleep_ms(40);  // Ajuste o tempo de espera conforme necessário
+        sleep_ms(40);
     }
+
+    return 0;
 }

@@ -43,9 +43,15 @@ project(ComunicaoSerial C CXX ASM)
 # Inicializar o SDK do Pico
 pico_sdk_init()
 
+# Criar diretório build se não existir
+if (NOT EXISTS "${CMAKE_BINARY_DIR}/build")
+    file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/build")
+endif()
+
 # Adicionar o executável principal
 add_executable(ComunicaoSerial 
     chamar_funcoes.c 
+    inc/ws2812.c 
     inc/uart_usb.c 
     inc/DisplayC.c 
     inc/ssd1306.c
@@ -62,7 +68,10 @@ pico_enable_stdio_usb(ComunicaoSerial 1)
 # Adicionar bibliotecas necessárias
 target_link_libraries(ComunicaoSerial
     pico_stdlib
+    hardware_gpio
     hardware_i2c
+    hardware_uart
+    hardware_pio
 )
 
 # Incluir diretórios de cabeçalhos
@@ -70,6 +79,8 @@ target_include_directories(ComunicaoSerial PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}
     ${CMAKE_CURRENT_LIST_DIR}/inc
 )
+
+pico_generate_pio_header(ComunicaoSerial ${CMAKE_CURRENT_LIST_DIR}/inc/ws2812.pio)
 
 # Gerar arquivos extras para depuração e programação
 pico_add_extra_outputs(ComunicaoSerial)

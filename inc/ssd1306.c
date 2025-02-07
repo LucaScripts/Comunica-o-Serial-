@@ -2,15 +2,23 @@
 #include "font.h"
 
 void ssd1306_init(ssd1306_t *ssd, uint8_t width, uint8_t height, bool external_vcc, uint8_t address, i2c_inst_t *i2c) {
-  ssd->width = width;
-  ssd->height = height;
-  ssd->pages = height / 8U;
-  ssd->address = address;
-  ssd->i2c_port = i2c;
-  ssd->bufsize = ssd->pages * ssd->width + 1;
-  ssd->ram_buffer = calloc(ssd->bufsize, sizeof(uint8_t));
-  ssd->ram_buffer[0] = 0x40;
-  ssd->port_buffer[0] = 0x80;
+    ssd->width = width;
+    ssd->height = height;
+    ssd->external_vcc = external_vcc;
+    ssd->address = address;
+    // Inicialização do display
+}
+
+void ssd1306_clear(ssd1306_t *ssd) {
+    // Limpar o display
+}
+
+void ssd1306_draw_string(ssd1306_t *ssd, const char *str, uint8_t x, uint8_t y) {
+    // Desenhar string no display
+}
+
+void ssd1306_show(ssd1306_t *ssd) {
+    // Atualizar o display
 }
 
 void ssd1306_config(ssd1306_t *ssd) {
