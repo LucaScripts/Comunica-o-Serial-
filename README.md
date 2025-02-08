@@ -1,74 +1,112 @@
-﻿# Comunicação Serial
+Claro! Aqui está o README reformulado de forma mais atrativa, seguindo o estilo que você mencionou:
 
-Repositório do professor Wilton
+---
 
-https://github.com/wiltonlacerda/EmbarcaTechU4C6.git
+# 🌟 **Projeto de Comunicação Serial com RP2040 e BitDogLab**
 
-## Enunciado
+📌 **Autor**: Lucas Dias  
+📆 **Data**: 07/02/2025
 
-Para consolidar os conceitos sobre o uso de interfaces de comunicação serial no RP2040 e explorar as funcionalidades da placa de desenvolvimento BitDogLab, propõe-se a realização da seguinte tarefa individual prática.
+Este projeto integra a comunicação serial com o **RP2040** e a placa de desenvolvimento **BitDogLab**, explorando o controle de LEDs e a interação com botões. O código e a estrutura do projeto foram baseados no repositório do professor Wilton para um melhor aprendizado e desenvolvimento prático.
 
-## Objetivos
+🔗 **Repositório do Professor Wilton**: [EmbarcaTechU4C6](https://github.com/wiltonlacerda/EmbarcaTechU4C6.git)
 
-- Compreender o funcionamento e a aplicação de comunicação serial em microcontroladores.
-- Aplicar os conhecimentos adquiridos sobre UART e I2C na prática.
-- Manipular e controlar LEDs comuns e LEDs endereçáveis WS2812.
-- Fixar o estudo do uso botões de acionamento, interrupções e Debounce.
-- Desenvolver um projeto funcional que combine hardware e software.
+---
 
-## Descrição do Projeto
+## 📌 **Objetivos**
+✅ **Compreensão da comunicação serial** em microcontroladores.  
+✅ **Aplicação prática de UART e I2C** para controle de dispositivos.  
+✅ **Manipulação de LEDs comuns e WS2812**.  
+✅ **Implementação de interrupções e debouncing** para botões.  
+✅ **Desenvolvimento de um sistema embarcado** funcional, combinando hardware e software.
 
-Neste projeto, você deverá utilizar os seguintes componentes conectados à placa BitDogLab:
+---
 
-- Matriz 5x5 de LEDs (endereçáveis) WS2812, conectada à GPIO 7.
-- LED RGB, com os pinos conectados às GPIOs (11, 12 e 13).
-- Botão A conectado à GPIO 5.
-- Botão B conectado à GPIO 6.
-- Display SSD1306 conectado via I2C (GPIO 14 e GPIO15).
+## 🛠 **Materiais Necessários**
+🔹 1x **Placa BitDogLab**  
+🔹 1x **Matriz 5x5 de LEDs WS2812** (GPIO 7)  
+🔹 1x **LED RGB** (GPIOs 11, 12, 13)  
+🔹 2x **Botões** (GPIO 5 e 6)  
+🔹 1x **Display SSD1306** (I2C, GPIOs 14 e 15)
 
-## Funcionalidades do Projeto
+---
 
-1. **Modificação da Biblioteca font.h**
-   - Adicionar caracteres minúsculos à biblioteca font.h. Use sua criatividade para criar os novos caracteres.
+## 🏗 **Esquema de Ligação**
+| Componente        | Pino do BitDogLab   |
+|-------------------|---------------------|
+| Matriz de LEDs    | GPIO 7              |
+| LED RGB Verde     | GPIO 11             |
+| LED RGB Vermelho  | GPIO 12             |
+| LED RGB Azul      | GPIO 13             |
+| Botão A           | GPIO 5              |
+| Botão B           | GPIO 6              |
+| Display SSD1306   | GPIO 14 e GPIO 15   |
 
-2. **Entrada de caracteres via PC**
-   - Utilize o Serial Monitor do VS Code para digitar os caracteres.
-   - Cada caractere digitado no Serial Monitor deve ser exibido no display SSD1306.
-   - Observação: Apenas um caractere será enviado de cada vez, não é necessário suportar o envio de strings completas.
-   - Quando um número entre 0 e 9 for digitado, um símbolo correspondente ao número deve ser exibido, também, na matriz 5x5 WS2812.
+**⚠️ OBS**: Conecte o lado positivo dos LEDs e botões aos pinos correspondentes e o lado negativo ao GND.
 
-3. **Interação com o Botão A**
-   - Pressionar o botão A deve alternar o estado do LED RGB Verde (ligado/desligado).
-   - A operação deve ser registrada de duas formas:
-     - Uma mensagem informativa sobre o estado do LED deve ser exibida no display SSD1306.
-     - Um texto descritivo sobre a operação deve ser enviado ao Serial Monitor.
+---
 
-4. **Interação com o Botão B**
-   - Pressionar o botão B deve alternar o estado do LED RGB Azul (ligado/desligado).
-   - A operação deve ser registrada de duas formas:
-     - Uma mensagem informativa sobre o estado do LED deve ser exibida no display SSD1306.
-     - Um texto descritivo sobre a operação deve ser enviado ao Serial Monitor.
+## 📜 **Funcionalidades do Projeto**
+### 1️⃣ **Modificação da Biblioteca `font.h`**
+- Criação de novos caracteres minúsculos para exibição no display SSD1306.
 
-## Requisitos do Projeto
+### 2️⃣ **Entrada de Caracteres via PC**
+- Caracteres digitados no **Serial Monitor** são exibidos no display SSD1306.
+- Números entre 0 e 9 acionam a exibição do símbolo correspondente na matriz 5x5 de LEDs WS2812.
 
-Para o desenvolvimento, devem ser seguidos os seguintes requisitos:
+### 3️⃣ **Interação com o Botão A**
+- Alterna o estado do **LED RGB Verde** ao pressionar o botão A.
+- Mensagem sobre o estado do LED é exibida no display SSD1306 e enviada ao Serial Monitor.
 
-1. **Uso de interrupções**: Todas as funcionalidades relacionadas aos botões devem ser implementadas utilizando rotinas de interrupção (IRQ).
-2. **Debouncing**: É obrigatório implementar o tratamento do bouncing dos botões via software.
-3. **Controle de LEDs**: O projeto deve incluir o uso de LEDs comuns e LEDs WS2812, demonstrando o domínio de diferentes tipos de controle.
-4. **Utilização do Display 128 x 64**: A utilização de fontes maiúsculas e minúsculas demonstrará o domínio do uso de bibliotecas, o entendimento do princípio de funcionamento do display, bem como, a utilização do protocolo I2C.
-5. **Envio de informação pela UART**: Visa observar a compreensão sobre a comunicação serial via UART.
-6. **Organização do código**: O código deve estar bem estruturado e comentado para facilitar o entendimento.
+### 4️⃣ **Interação com o Botão B**
+- Alterna o estado do **LED RGB Azul** ao pressionar o botão B.
+- Mensagem sobre o estado do LED é exibida no display SSD1306 e enviada ao Serial Monitor.
 
-## Entrega
+---
 
-- **Código**: O código-fonte do projeto deve ser entregue em um link do seu repositório, contendo todos os arquivos necessários para sua execução.
-- **Vídeo de demonstração**: Deve ser produzido um vídeo de até 2 minutos, no qual o aluno deve:
-  - Aparecer pessoalmente demonstrando o funcionamento do projeto.
-  - Explicar brevemente as funcionalidades implementadas.
-  - Mostrar o projeto em execução na placa BitDogLab.
-  - Link do vídeo no Youtube ou Google Drive.
+## 🧰 **Requisitos do Projeto**
+- **Uso de Interrupções** para botões com **debouncing** implementado via software.
+- **Controle de LEDs** comuns e WS2812.
+- **Exibição de texto no display SSD1306** utilizando fontes maiúsculas e minúsculas.
+- **Envio de informações via UART** para depuração.
+- **Código organizado e bem documentado**.
 
-## Considerações Finais
+---
 
-Este projeto é uma excelente oportunidade para consolidar os conhecimentos em programação de microcontroladores, manipulação de hardware e desenvolvimento de interfaces de comunicação. Certifique-se de seguir todos os requisitos e de entregar um código bem estruturado e comentado. Boa sorte!
+## 📥 **Instalação e Execução**
+
+### 1️⃣ **Configuração do Ambiente**
+Certifique-se de ter o **Pico SDK** instalado e configurado no seu sistema.
+
+Se necessário, consulte o guia oficial:  
+🔗 [Guia Oficial do Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk)
+
+### 2️⃣ **Clonando o Repositório e Enviando para o RP2040**
+Clone o repositório e compile o código para a placa utilizando o **VS Code** e o **Pico SDK**.
+
+---
+
+## 🎯 **Funcionamento**
+- **Botão A** alterna o **LED Verde**.
+- **Botão B** alterna o **LED Azul**.
+- **Display SSD1306** exibe o estado dos LEDs em tempo real.
+- **Matriz de LEDs WS2812** exibe números de 0 a 9 quando digitados no Serial Monitor.
+
+---
+
+## 🚦 **Demonstração do Funcionamento**
+
+Veja abaixo uma prévia de como o projeto se comporta na placa **BitDogLab**:
+
+![Demonstração do Projeto](https://github.com/LucaScripts/Clock-e-Temporizadores/blob/main/docs/Clock-e-Temporizadores-2%20-%20Visual%20Studio%20Code%202025-01-31%2019-22-00.gif?raw=true)
+
+---
+
+## 📌 **Melhorias Futuras**
+🚀 **Integração com outras interfaces de comunicação**, como Bluetooth ou Wi-Fi.  
+🛠 **Adição de novos modos de controle** para LEDs, como piscante ou sequencial.  
+📡 **Controle remoto** via redes sem fio.
+
+---
+
+Agora, o README está mais estruturado, com emojis e títulos claros para facilitar a leitura e tornar a apresentação mais atrativa.
