@@ -84,7 +84,7 @@ Clone o repositório e compile o código para a placa utilizando o **VS Code** e
 
 Para baixar o código e começar a trabalhar com ele, clone o repositório e carregue o código na placa seguindo os passos abaixo:
 
-![Clonando o Repositório](https://github.com/LucaScripts/Clock-e-Temporizadores/blob/main/docs/Bem-vindo%20-%20Visual%20Studio%20Code%202025-01-31%2018-49-32.gif?raw=true)
+![Clonando o Repositório](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/Bem-vindo%20-%20Visual%20Studio%20Code%202025-01-31%2018-49-32%20(1).gif?raw=true)
 
 Após a compilação, copie o arquivo `.uf2` gerado para o Raspberry Pi Pico (modo bootloader ativado).
 
