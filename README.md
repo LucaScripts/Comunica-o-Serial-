@@ -80,6 +80,22 @@ Se necessário, consulte o guia oficial:
 ### 2️⃣ **Clonando o Repositório e Enviando para o RP2040**
 Clone o repositório e compile o código para a placa utilizando o **VS Code** e o **Pico SDK**.
 
+## 📥 Clonando o Repositório e Compilando o Código
+
+Para baixar o código e começar a trabalhar com ele, clone o repositório e carregue o código na placa seguindo os passos abaixo:
+
+![Clonando o Repositório](https://github.com/LucaScripts/Clock-e-Temporizadores/blob/main/docs/Bem-vindo%20-%20Visual%20Studio%20Code%202025-01-31%2018-49-32.gif?raw=true)
+
+Após a compilação, copie o arquivo `.uf2` gerado para o Raspberry Pi Pico (modo bootloader ativado).
+
+---
+
+## 🚦 Demonstração da Simulação
+
+Abaixo está uma prévia da simulação do controle do servomotor no **Wokwi**:
+
+![Simulação do Servomotor no Wokwi](https://github.com/LucaScripts/PWM/blob/main/docs/diagram.json%20-%20pwm%20-%20Visual%20Studio%20Code%202025-02-08%2018-16-53.gif?raw=true)
+
 ---
 
 ## 🎯 **Funcionamento**
