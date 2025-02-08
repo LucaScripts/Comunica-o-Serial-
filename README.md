@@ -92,7 +92,7 @@ Após a compilação, copie o arquivo `.uf2` gerado para o Raspberry Pi Pico (mo
 
 ## 🚦 Demonstração da Simulação
 
-Abaixo está uma prévia da simulação do controle do servomotor no **Wokwi**:
+Abaixo está uma prévia da simulação da comunicação serial no **Wokwi**:
 
 ![Simulação do Servomotor no Wokwi](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/diagram.json%20-%20ComunicaoSerial%20-%20Visual%20Studio%20Code%202025-02-08%2018-32-16.gif?raw=true)
 
