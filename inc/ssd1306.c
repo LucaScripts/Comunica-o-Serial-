@@ -1,7 +1,7 @@
 /*
- * Autor: Lucas
+ * Autor: Lucas Dias
  * Descrição: Este arquivo contém as funções para inicializar e controlar um display OLED SSD1306
- * utilizando a comunicação I2C. Inclui funções para desenhar pixels, linhas, retângulos, caracteres e ícones no display.
+ * utilizando a comunicação I2C. Inclui funções para desenhar pixels, linhas, retângulos, caracteres no display.
  */
 
 #include "ssd1306.h"
