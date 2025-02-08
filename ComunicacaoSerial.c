@@ -109,7 +109,6 @@ void init_display() {
     // Valores iniciais
     ssd1306_draw_string(&ssd, "Digite algo", 8, 10);
     ssd1306_draw_string(&ssd, "G OFF", 8, 48);
-    ssd1306_draw_icon(&ssd, 2, 58, 48);
     ssd1306_draw_string(&ssd, "B OFF", 80, 48);
     ssd1306_send_data(&ssd);  
 }
@@ -197,14 +196,7 @@ void clear_line(uint y) {
             printf(blue_led_on ? "LED Azul ON\n" : "LED Azul OFF\n");
         }
 
-        // Atualiza o ícone no display de acordo com os LEDs ligados/desligados
-        if(green_led_on && blue_led_on) 
-            ssd1306_draw_icon(&ssd, 0, 58, 48);  // Ambos ligados
-        else if(green_led_on || blue_led_on) 
-            ssd1306_draw_icon(&ssd, 1, 58, 48);  // Apenas um ligado
-        else 
-            ssd1306_draw_icon(&ssd, 2, 58, 48);  // Ambos desligados
-
+      
         // Atualiza os LEDs da matriz se um número válido estiver selecionado
         if(number_id >= 0 && number_id <= 9) {
             set_led_by_pattern(led_number_pattern[number_id]); // Define o padrão dos LEDs
