@@ -1,8 +1,4 @@
-Claro! Aqui está o README reformulado de forma mais atrativa, seguindo o estilo que você mencionou:
-
----
-
-# 🌟 **Projeto de Comunicação Serial com RP2040 e BitDogLab**
+# **Projeto de Comunicação Serial com RP2040 e BitDogLab**
 
 📌 **Autor**: Lucas Dias  
 📆 **Data**: 07/02/2025
@@ -106,7 +102,3 @@ Veja abaixo uma prévia de como o projeto se comporta na placa **BitDogLab**:
 🚀 **Integração com outras interfaces de comunicação**, como Bluetooth ou Wi-Fi.  
 🛠 **Adição de novos modos de controle** para LEDs, como piscante ou sequencial.  
 📡 **Controle remoto** via redes sem fio.
-
----
-
-Agora, o README está mais estruturado, com emojis e títulos claros para facilitar a leitura e tornar a apresentação mais atrativa.
