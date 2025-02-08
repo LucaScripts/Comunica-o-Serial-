@@ -1,5 +1,8 @@
-#ifndef SSD1306_H
-#define SSD1306_H
+/*
+ * Autor: Lucas
+ * Descrição: Este arquivo contém as definições e declarações das funções para controlar um display OLED SSD1306
+ * utilizando a comunicação I2C. Inclui definições de comandos e a estrutura de dados para o display.
+ */
 
 #include <stdlib.h>
 #include "pico/stdlib.h"
@@ -50,7 +53,4 @@ void ssd1306_hline(ssd1306_t *ssd, uint8_t x0, uint8_t x1, uint8_t y, bool value
 void ssd1306_vline(ssd1306_t *ssd, uint8_t x, uint8_t y0, uint8_t y1, bool value);
 void ssd1306_draw_char(ssd1306_t *ssd, char c, uint8_t x, uint8_t y);
 void ssd1306_draw_string(ssd1306_t *ssd, const char *str, uint8_t x, uint8_t y);
-void ssd1306_clear(ssd1306_t *ssd);
-void ssd1306_show(ssd1306_t *ssd);
-
-#endif // SSD1306_H
+void ssd1306_draw_icon(ssd1306_t *ssd, const int id, uint8_t x, uint8_t y);
