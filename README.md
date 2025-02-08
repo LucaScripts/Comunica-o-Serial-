@@ -96,9 +96,3 @@ Veja abaixo uma prévia de como o projeto se comporta na placa **BitDogLab**:
 
 ![Demonstração do Projeto](https://github.com/LucaScripts/Clock-e-Temporizadores/blob/main/docs/Clock-e-Temporizadores-2%20-%20Visual%20Studio%20Code%202025-01-31%2019-22-00.gif?raw=true)
 
----
-
-## 📌 **Melhorias Futuras**
-🚀 **Integração com outras interfaces de comunicação**, como Bluetooth ou Wi-Fi.  
-🛠 **Adição de novos modos de controle** para LEDs, como piscante ou sequencial.  
-📡 **Controle remoto** via redes sem fio.
