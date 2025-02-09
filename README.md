@@ -100,7 +100,7 @@ Abaixo está uma prévia da simulação da comunicação serial no **Wokwi**:
 
 ![Simulação no Wokwi](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/matriz%20de%20LED%20no%20wokwi.gif?raw=true)
 
-**Display SSD1306** exibe o estado dos LEDs em tempo real no **Wokwi**:
+**Display SSD1306** exibe o que é digitado no Serial Monitor **Wokwi**:
 
 ![Simulação no Wokwi](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/OLED%20wokwi.gif?raw=true)
 
