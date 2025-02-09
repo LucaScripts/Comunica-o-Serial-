@@ -124,5 +124,5 @@ Abaixo está uma prévia da simulação da comunicação serial no **Wokwi**:
 
 Veja abaixo uma prévia de como o projeto se comporta na placa **BitDogLab**:
 
-![Demonstração do Projeto](https://github.com/LucaScripts/Clock-e-Temporizadores/blob/main/docs/Clock-e-Temporizadores-2%20-%20Visual%20Studio%20Code%202025-01-31%2019-22-00.gif?raw=true)
+![Demonstração do Projeto](https://drive.google.com/file/d/1fVg4l7feubeo3MYYYcW3coXZ7cTFD5c2/view?usp=sharing)
 
