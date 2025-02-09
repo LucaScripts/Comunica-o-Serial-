@@ -1,4 +1,6 @@
-(https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/Group%20658.png?raw=true)
+
+![Logo do Projeto](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/Group%20658.png?raw=true)
+
 
 
 # **Projeto de Comunicação Serial com RP2040 e BitDogLab**
