@@ -148,9 +148,9 @@ Veja abaixo uma prévia do funcionamento do projeto na placa **BitDogLab**. Na d
 ---
 
 ## 📌 **Melhorias Futuras**
--🚀 Controle Manual: Implementar um botão para controlar manualmente a comunicação serial.
--📡 Suporte a Múltiplos Dispositivos: Expandir o sistema para comunicação com vários dispositivos ao mesmo tempo.
--🖥️ Interface Gráfica no PC: Criar uma interface para monitorar e interagir com os dispositivos conectados.
--🔄 Otimização da Comunicação I2C: Melhorar a comunicação com o display SSD1306 para atualizações mais rápidas.
--🔄 Novos Protocolos de Comunicação: Adicionar suporte a SPI e UART para integrar mais dispositivos e sensores.
+- **🚀 Controle Manual: Implementar um botão para controlar manualmente a comunicação serial.
+- **📡 Suporte a Múltiplos Dispositivos: Expandir o sistema para comunicação com vários dispositivos ao mesmo tempo.
+- **🖥️ Interface Gráfica no PC: Criar uma interface para monitorar e interagir com os dispositivos conectados.
+- **🔄 Otimização da Comunicação I2C: Melhorar a comunicação com o display SSD1306 para atualizações mais rápidas.
+- **-🔄 Novos Protocolos de Comunicação: Adicionar suporte a SPI e UART para integrar mais dispositivos e sensores.
 
