@@ -96,13 +96,13 @@ Após a compilação, copie o arquivo `.uf2` gerado para o Raspberry Pi Pico (mo
 
 ---
 
-## 🚦 Demonstração da Simulação
+## 🚦 Demonstração da Simulação Wokwi
 
 Abaixo está uma prévia da simulação da comunicação serial no **Wokwi**:
 
 ![Simulação no Wokwi](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/diagram.json%20-%20ComunicaoSerial%20-%20Visual%20Studio%20Code%202025-02-08%2018-32-16.gif?raw=true)
 
- **Matriz de LEDs WS2812** exibe números de 0 a 9 quando digitados no Serial Monitor **Wokwi**:
+**Matriz de LEDs WS2812** exibe números de 0 a 9 quando digitados no Serial Monitor **Wokwi**:
 
 ![Simulação no Wokwi](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/matriz%20de%20LED%20no%20wokwi.gif?raw=true)
 
@@ -120,10 +120,23 @@ Abaixo está uma prévia da simulação da comunicação serial no **Wokwi**:
 
 ---
 
-## 🚦 **Demonstração do Funcionamento**
+## 🚦 **Demonstração do Funcionamento BitDogLab**
 
 Veja abaixo uma prévia do funcionamento do projeto na placa **BitDogLab**. Na demonstração, você poderá observar como os LEDs WS2812 e os botões interagem para exibir números na matriz de LEDs:
 
-[Assista à Demonstração do Projeto](https://drive.google.com/file/d/1fVg4l7feubeo3MYYYcW3coXZ7cTFD5c2/view?usp=sharing)
+[Assista à Demonstração do Projeto completo](https://drive.google.com/file/d/1fVg4l7feubeo3MYYYcW3coXZ7cTFD5c2/view?usp=sharing)
+
+**Botão** alterna o **LED** altera a cor do LED para Verde ou Azul **BitDogLab**:
+
+![BitDogLab](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/OLED%20wokwi.gif?raw=true)
+
+**Matriz de LEDs WS2812** exibe números de 0 a 9 quando digitados no Serial Monitor **BitDogLab**:
+
+![BitDogLab](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/OLED%20wokwi.gif?raw=true)
+
+
+**Display SSD1306** exibe o que é digitado no Serial Monitor **BitDogLab**:
+
+![BitDogLab](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/OLED%20wokwi.gif?raw=true)
 
 
