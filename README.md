@@ -122,7 +122,8 @@ Abaixo está uma prévia da simulação da comunicação serial no **Wokwi**:
 
 ## 🚦 **Demonstração do Funcionamento**
 
-Veja abaixo uma prévia de como o projeto se comporta na placa **BitDogLab**:
+Veja abaixo uma prévia do funcionamento do projeto na placa **BitDogLab**. Na demonstração, você poderá observar como os LEDs WS2812 e os botões interagem para exibir números na matriz de LEDs:
 
-![Demonstração do Projeto](https://drive.google.com/file/d/1fVg4l7feubeo3MYYYcW3coXZ7cTFD5c2/view?usp=sharing)
+[Assista à Demonstração do Projeto](https://drive.google.com/file/d/1fVg4l7feubeo3MYYYcW3coXZ7cTFD5c2/view?usp=sharing)
+
 
