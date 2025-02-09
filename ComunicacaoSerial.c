@@ -237,20 +237,33 @@ int main() {
         sleep_ms(100);
         scanf("%c", &c);
 
-        if (x == 8) clear_line(y); // Limpar uma nova linha
-        ssd1306_draw_char(&ssd, c, x, y); // Escreve o caractere
+        if (c == 127) { // Verifica se é o caractere de backspace (ASCII 127)
+            if (x > 8) {
+                x -= 8; // Move o cursor para a posição anterior
+            } else if (y > 10) {
+                y -= 9; // Move para a linha anterior
+                x = 112; // Define a posição x para o final da linha anterior
+            }
+            ssd1306_draw_char(&ssd, ' ', x, y); // Apaga o caractere atual
+        } else if (c == '\n' || c == '\r') { // Verifica se é o caractere de enter
+            x = 8; // Volta para o início da linha
+            y += 9; // Move para a próxima linha
+            if (y > 28) y = 10; // Verifica se já é a última linha e retorna para a primeira caso seja
+        } else {
+            if (x == 8) clear_line(y); // Limpar uma nova linha
+            ssd1306_draw_char(&ssd, c, x, y); // Escreve o caractere
 
-        x += 8; // Ajusta o valor de x para a coordenada do próximo caractere
-        if (x > 112) { // Verifica se já passou do limite da linha
-          x = 8; // Volta para o início
-          y += 9; // Redireciona para a próxima linha
-          
-          if (y > 28) y = 10; // Verifica se já é a última linha e retorna para a primeira caso seja
-        }
+            x += 8; // Ajusta o valor de x para a coordenada do próximo caractere
+            if (x > 112) { // Verifica se já passou do limite da linha
+                x = 8; // Volta para o início
+                y += 9; // Redireciona para a próxima linha
+                if (y > 28) y = 10; // Verifica se já é a última linha e retorna para a primeira caso seja
+            }
 
-        if(c >= '0' && c <= '9') {
-            number_id = c - '0';
-            num(number_id, pio, sm); // Chama a função num para exibir o número na matriz
+            if(c >= '0' && c <= '9') {
+                number_id = c - '0';
+                num(number_id, pio, sm); // Chama a função num para exibir o número na matriz
+            }
         }
         ssd1306_send_data(&ssd); // Atualiza o display
     }
