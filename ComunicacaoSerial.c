@@ -1,11 +1,3 @@
-/*
- * Autor: Lucas Dias
- * Descrição: Este código é responsável por controlar uma matriz de LEDs RGB, um display OLED e botões em um microcontrolador
- * utilizando a biblioteca Pico SDK. Ele inicializa as GPIOs, a comunicação I2C, a PIO para controle dos LEDs e configura
- * interrupções para os botões. O display OLED é utilizado para mostrar mensagens e o estado dos LEDs. A matriz de LEDs
- * exibe padrões numéricos de acordo com a entrada do usuário via comunicação serial.
- */
-
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/pio.h"
@@ -15,11 +7,14 @@
 #include "inc/font.h"
 #include "ws2812b.pio.h"
 
+// Function prototype for num
+void num(uint8_t value, PIO pio, uint sm);
+
 // Definição dos pinos para conexão com os LEDs RGB
 #define LED_G_PIN 11
 #define LED_B_PIN 12
 
-// Definição dos pino para a conexão com os Botões
+// Definição dos pinos para a conexão com os Botões
 #define BTN_A_PIN 5
 #define BTN_B_PIN 6
 
@@ -44,27 +39,14 @@ typedef struct pixel_t {
 
 led_t led_matrix[LED_MTX_COUNT]; // Buffer de pixels que compõem a matriz
 
-uint32_t led_number_pattern[10] = {
-    0xe5294e, // Número 0
-    0x435084, // Número 1
-    0xe4384e, // Número 2
-    0xe4390e, // Número 3
-    0xa53902, // Número 4
-    0xe1390e, // Número 5
-    0xe4394e, // Número 6
-    0xe40902, // Número 7
-    0xe5394e, // Número 8
-    0xe5390e  // Número 9
-};
-
 /*
  * Inicialização das GPIOs
  */
 void init_gpio() {
-    gpio_init(LED_G_PIN);
-    gpio_init(LED_B_PIN);
-    gpio_init(BTN_A_PIN);
-    gpio_init(BTN_B_PIN);
+    uint pins[] = {LED_G_PIN, LED_B_PIN, BTN_A_PIN, BTN_B_PIN};
+    for (int i = 0; i < 4; i++) {
+        gpio_init(pins[i]);
+    }
 
     gpio_set_function(I2C_SDA, GPIO_FUNC_I2C);
     gpio_set_function(I2C_SCL, GPIO_FUNC_I2C);
@@ -157,15 +139,6 @@ volatile bool green_led_on = false;
 volatile bool blue_led_on = false;
 volatile int number_id = -1;
 
-void set_led_by_pattern(uint32_t pattern) {
-    uint lvl = LED_MTX_LEVEL;
-    for(uint i = 0; i < LED_MTX_COUNT; i++) {
-        // Verifica se o bit é 1. Em casos positivos, acende o LED na cor branca com a intensidade setada
-        if((pattern >> i) & 1) set_led(i, lvl * (!blue_led_on && !green_led_on), lvl * green_led_on, lvl * blue_led_on); 
-        else set_led(i, 0, 0, 0); // Caso contrário, deixa o LED apagado 
-    }
-}
-
 /*
  * Limpa uma linha
  */
@@ -173,9 +146,9 @@ void clear_line(uint y) {
     for(int x = 8; x <= 112; x += 8) {
       ssd1306_draw_char(&ssd, ' ', x, y);
     }
-  }
+}
 
-  void button_callback(uint gpio, uint32_t events) {
+void button_callback(uint gpio, uint32_t events) {
     uint32_t now = to_ms_since_boot(get_absolute_time()); // Obtém o tempo atual em ms
 
     if(now - last_interrupt_time > DEBOUNCE_DELAY_MS) { // Verifica se o botão foi pressionado após o tempo de debounce
@@ -196,15 +169,43 @@ void clear_line(uint y) {
             printf(blue_led_on ? "LED Azul ON\n" : "LED Azul OFF\n");
         }
 
-      
         // Atualiza os LEDs da matriz se um número válido estiver selecionado
         if(number_id >= 0 && number_id <= 9) {
-            set_led_by_pattern(led_number_pattern[number_id]); // Define o padrão dos LEDs
-            write_leds(); // Envia os dados para a matriz de LEDs
+            num(number_id, pio, sm); // Chama a função num para exibir o número na matriz
         }
 
         ssd1306_send_data(&ssd); // Envia os dados atualizados para o display
     }
+}
+
+// Rotina para exibir números na matriz WS2812
+void num(uint8_t value, PIO pio, uint sm) {
+    static const uint8_t segmentos[10][15] = {
+        {23, 22, 21, 16, 13, 6, 3, 2, 1, 8, 11, 18, 0},     // 0
+        {22, 16, 17, 12, 7, 3, 2, 1},                       // 1
+        {1, 2, 3, 6, 11 ,12, 13, 18, 21, 22, 23, 0},        // 2
+        {1, 2, 3, 8, 11, 12, 13, 18, 21, 22, 23, 0},        // 3
+        {1, 8, 11, 12, 13, 16, 23, 21, 18, 0},              // 4
+        {21, 22, 23, 16, 13, 12, 11, 8, 1, 2, 3, 0},        // 5
+        {21, 22, 23, 16, 13, 12, 11, 8, 1, 2, 3, 6, 0},     // 6
+        {24, 23, 22, 2, 17, 13, 12, 11, 7},                 // 7
+        {23, 22, 21, 16, 13, 6, 3, 2, 1, 8, 11, 18, 12, 0}, // 8
+        {23, 22, 21, 16, 13, 1, 8, 11, 18, 12, 0}           // 9
+    };
+
+    clear_leds();
+    for (int i = 0; segmentos[value][i] != 0; i++) {
+        uint8_t R = LED_MTX_LEVEL, G = 0, B = 0; // Define a cor vermelha com intensidade reduzida
+        if (green_led_on && blue_led_on) {
+            R = LED_MTX_LEVEL; G = LED_MTX_LEVEL; B = LED_MTX_LEVEL; // Define a cor branca
+        } else if (green_led_on) {
+            R = 0; G = LED_MTX_LEVEL; B = 0; // Define a cor verde com intensidade reduzida
+        } else if (blue_led_on) {
+            R = 0; G = 0; B = LED_MTX_LEVEL; // Define a cor azul com intensidade reduzida
+        }
+        set_led(segmentos[value][i], R, G, B);
+    }
+    write_leds();
 }
 
 int main() {
@@ -241,8 +242,7 @@ int main() {
 
         if(c >= '0' && c <= '9') {
             number_id = c - '0';
-            set_led_by_pattern(led_number_pattern[number_id]);
-            write_leds();
+            num(number_id, pio, sm); // Chama a função num para exibir o número na matriz
         }
         ssd1306_send_data(&ssd); // Atualiza o display
     }
