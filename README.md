@@ -126,17 +126,20 @@ Veja abaixo uma prévia do funcionamento do projeto na placa **BitDogLab**. Na d
 
 [Assista à Demonstração do Projeto completo](https://drive.google.com/file/d/1fVg4l7feubeo3MYYYcW3coXZ7cTFD5c2/view?usp=sharing)
 
+
 **Botão** alterna o **LED** altera a cor do LED para Verde ou Azul **BitDogLab**:
 
-![BitDogLab](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/OLED%20wokwi.gif?raw=true)
+![BitDogLab](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/liga%20e%20desliga%20led.gif?raw=true)
 
 **Matriz de LEDs WS2812** exibe números de 0 a 9 quando digitados no Serial Monitor **BitDogLab**:
 
-![BitDogLab](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/OLED%20wokwi.gif?raw=true)
+![BitDogLab](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/matriz%20led%20numeros.gif?raw=true)
 
 
 **Display SSD1306** exibe o que é digitado no Serial Monitor **BitDogLab**:
 
-![BitDogLab](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/OLED%20wokwi.gif?raw=true)
+![BitDogLab](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/tela%20oled%20com%20serial.gif?raw=true)
+
+---
 
 
