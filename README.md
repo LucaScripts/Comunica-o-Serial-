@@ -86,6 +86,10 @@ Para baixar o código e começar a trabalhar com ele, clone o repositório e car
 
 ![Clonando o Repositório](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/Bem-vindo%20-%20Visual%20Studio%20Code%202025-01-31%2018-49-32%20(1).gif?raw=true)
 
+
+
+
+
 Após a compilação, copie o arquivo `.uf2` gerado para o Raspberry Pi Pico (modo bootloader ativado).
 
 ---
@@ -94,7 +98,11 @@ Após a compilação, copie o arquivo `.uf2` gerado para o Raspberry Pi Pico (mo
 
 Abaixo está uma prévia da simulação da comunicação serial no **Wokwi**:
 
-![Simulação do Servomotor no Wokwi](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/diagram.json%20-%20ComunicaoSerial%20-%20Visual%20Studio%20Code%202025-02-08%2018-32-16.gif?raw=true)
+![Simulação no Wokwi](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/diagram.json%20-%20ComunicaoSerial%20-%20Visual%20Studio%20Code%202025-02-08%2018-32-16.gif?raw=true)
+
+ **Display SSD1306** exibe o estado dos LEDs **Wokwi**
+
+![Simulação no Wokwi](https://github.com/LucaScripts/ComunicaoSerial/blob/main/docs/matriz%20de%20LED%20no%20wokwi.gif?raw=true)
 
 ---
 
