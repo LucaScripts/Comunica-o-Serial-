@@ -1,3 +1,11 @@
+/*
+ * Autor: Lucas Dias
+ * Descrição: Este código é responsável por controlar uma matriz de LEDs RGB, um display OLED e botões em um microcontrolador
+ * utilizando a biblioteca Pico SDK. Ele inicializa as GPIOs, a comunicação I2C, a PIO para controle dos LEDs e configura
+ * interrupções para os botões. O display OLED é utilizado para mostrar mensagens e o estado dos LEDs. A matriz de LEDs
+ * exibe padrões numéricos de acordo com a entrada do usuário via comunicação serial.
+ */
+
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/pio.h"

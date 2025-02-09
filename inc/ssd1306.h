@@ -1,5 +1,5 @@
 /*
- * Autor: Lucas
+ * Autor: Lucas Dias
  * Descrição: Este arquivo contém as definições e declarações das funções para controlar um display OLED SSD1306
  * utilizando a comunicação I2C. Inclui definições de comandos e a estrutura de dados para o display.
  */
